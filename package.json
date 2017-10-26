@@ -1,0 +1,22 @@
+{
+  "name": "mongoose-blog-app",
+  "version": "1.0.0",
+  "description": "mongoose-blog-app-test",
+  "main": "config.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianmcdermott/mongoose-blog-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianmcdermott/mongoose-blog-app/issues"
+  },
+  "homepage": "https://github.com/ianmcdermott/mongoose-blog-app#readme"
+}
