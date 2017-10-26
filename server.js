@@ -17,8 +17,8 @@ app.get('/blogposts', (req,res) =>{
 	  .then(blogposts =>{
 	  	res.json({
 	  		blogposts: blogposts.map(
-	  			())
-	  	})
+	  			(blogpost) => blogpost.apiRepr())
+	  	});
 	  })
 	  .catch(
 	  	err => {
@@ -31,7 +31,7 @@ app.get('/blogposts', (req,res) =>{
 app.get('/blogposts/:id', (req, res) =>{
 	Blogpost
  	  .findById(req.params.id)
-	  .then(blogposts => res.json(blogpost.apiRepr()))
+	  .then(blogpost => res.json(blogpost.apiRepr()))
 	  .catch(
 		err => {
 			console.error(err);
@@ -85,7 +85,7 @@ app.put('/blogposts/:id', (req, res)=>{
 	});
 
 	Blogpost
-		.findByIdAndUpdate(req.params.id)
+		.findByIdAndUpdate(req.params.id, {$set: toUpdate})
 		.then(blogpost => res.status(204).end())
 		.catch(err => res.status(500).json({message: 'Internal server error'}))
 });
