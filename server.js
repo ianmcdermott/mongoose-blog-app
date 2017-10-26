@@ -35,12 +35,13 @@ app.get('/blogposts/:id', (req, res) =>{
 	  .catch(
 		err => {
 			console.error(err);
+			//internal server error
 			res.status(500).json({message: 'Internal server error'});
 	});
 });
 
 app.post('/blogposts', (req, res) =>{
-	const requiredFields = ['title', 'content', 'author', 'created'];
+	const requiredFields = ['title', 'content', 'author'];
 	for(let i = 0; i < requiredFields.length; i++){
 		const field = requiredFields[i];
 		if(!(field in req.body)){
@@ -62,8 +63,9 @@ app.post('/blogposts', (req, res) =>{
 		.catch(err =>{
 			console.log(err);
 			res.status(500).json({message: "Internal server error"});
-		})
-})
+		});
+
+});
 
 app.put('/blogposts/:id', (req, res)=>{
 	if(!(req.params.id === req.body.id)){
@@ -74,7 +76,7 @@ app.put('/blogposts/:id', (req, res)=>{
 	}
 
 	const toUpdate = {}
-	const updateableFields = ['title', 'content', 'author', 'created'];
+	const updateableFields = ['title', 'content', 'author'];
 
 	updateableFields.forEach(field =>{
 		if(field in req.body){
