@@ -4,7 +4,11 @@
   "description": "mongoose-blog-app-test",
   "main": "config.js",
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.15.2",
+    "express": "^4.12.4",
+    "mongoose": "^4.7.1",
+    "morgan": "^1.7.0",
+"uuid": "^2.0.3"
   },
   "devDependencies": {},
   "scripts": {
